@@ -2,7 +2,7 @@ Project: Linux Server Configuration - Shumei Lin
 
 - IP Address: http://35.160.183.100
 - URL: http://ec2-35-160-183-100.us-west-2.compute.amazonaws.com
-- User grader password: g5332847r
+- User grader password: g5332847rA
 - Sotware installed:
 
 	apache2
