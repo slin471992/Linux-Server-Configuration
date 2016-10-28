@@ -1,21 +1,25 @@
-Project: Catalog App  - [Shumei Lin]
-================================
+Project: Linux Server Configuration - Shumei Lin
 
-Required Libraries and Dependencies
------------------------------------
-Requires Python v2.7 to be installed.
-Requires Vagrant VM to be installed.
-For information to install and run Vagrant VM, please follow steps on the following webpage:
-https://udacity.atlassian.net/wiki/display/BENDH/Vagrant+VM+Installation
+- IP Address: http://35.160.183.100
+- URL: http://ec2-35-160-183-100.us-west-2.compute.amazonaws.com
+- Sotware installed:
+	apache2
+	mod-wsgi
+	PostgreSQL
+	Flask
+	pip
 
-How to Run Project
-------------------
-- Download and unzip the project file.
-- Replace files in /fullstack/vagrant/catalog directory with files in the project file.
-- Launch Git Bash terminal window, type vagrant ssh to log in.
-- From Git Bash, navigate to the project's directory, which should do by typing cd /vagrant/catalog.
-- From there type python database_setup.py to set up the database.
-- After successful set up type python lotsofitems.py to create the database.
-- In Git Bash, type python project.py run the project.
-- Open http://localhost:5000 to visit the catalog app in localhost.
+- Configuration made:
+	Changed ssh port from 22 to 2200.
+	Configured firewall to only allow connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
+	Created new user grader with sudo access.
+	Remote login of the root user is disabled.
+	Key-based SSH authentication is enforced.
+	Configured local time to UTC.
+	Configured and enabled a new virtual host in /etc/apache2/sites-available/catalog.conf.
+	Created a catalog.wsgi file to serve the catalog app with flask and python.
 
+- Third party resources used:
+	https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+	https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04
+	https://www.digitalocean.com/community/tutorials/how-to-use-roles-and-manage-grant-permissions-in-postgresql-on-a-vps--2
