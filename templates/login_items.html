@@ -1,0 +1,52 @@
+{% extends "login_main.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 sidebar-module">
+            <h1>Categories:</h1>
+            <ol class="list-unstyled">
+                {% for category in catalog %}
+                    <li>
+                        <h3><a href="{{url_for('showItems', category_name=category.name)}}">{{category.name}}</a></h3>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+
+        <div class = 'flash'>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+
+                <ul>
+                    {% for message in messages %}
+                        <li> <strong> {{ message }} </strong> </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <div class="col-sm-6 sidebar-module">
+
+            <h1>{{category.name}} Items ({{number}} items):</h1>
+            <a href="{{url_for('menuItemJSON', category_name=category.name)}}">JSON Endpoints | </a>
+            <a href="{{url_for('newItem', category_name=category.name)}}">Add Item | </a>
+            <a href="{{url_for('editCategory', category_name=category.name)}}">Edit | </a>
+            <a href="{{url_for('deleteCategory', category_name=category.name)}}">Delete</a>
+            <ol class="list-unstyled">
+                {% for item in items %}
+                    <li>
+                        <h3>
+                            <a href="{{url_for('showDescription', category_name=item.category.name, item_name=item.name)}}">{{item.name}}</a>
+                        </h3>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

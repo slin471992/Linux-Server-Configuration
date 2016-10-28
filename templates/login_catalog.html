@@ -1,0 +1,60 @@
+{% extends "login_main.html" %}
+{% block content %}
+
+<div class="blog-header">
+    <div class="container">
+        <h1 class="blog-title">Catalog App</h1>
+        <p class="lead blog-description">An app to show items within different category.</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class = "row">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+
+            <ul>
+                {% for message in messages %}
+                    <li> <strong> {{ message }} </strong> </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 sidebar-module">
+                <h1>Categories:</h1>
+                <a href="{{url_for('showCatalogJSON')}}">JSON Endpoints | </a>
+                <a href="{{url_for('newCategory')}}">Add Category</a>
+                <ol class="list-unstyled">
+                    {% for category in catalog %}
+                        <li>
+                            <h3><a href="{{url_for('showItems', category_name=category.name)}}">{{category.name}}</a></h3>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+
+            <div class="col-sm-6 sidebar-module">
+                <h1>Latest Added Items:</h1>
+                <ol class="list-unstyled">
+                    {% for item in items %}
+                        <li>
+                            <h3>
+                                <a href="{{url_for('showDescription', category_name=item.category.name, item_name=item.name)}}">
+                                    {{item.name}} ({{item.category.name}})
+                                </a>
+                            </h3>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

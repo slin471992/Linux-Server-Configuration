@@ -1,0 +1,46 @@
+{% extends "login_main.html" %}
+{% block content %}
+
+<div class="container">
+
+
+    <div class="row divider green">
+        <div class="col-md-12"></div>
+    </div>
+    <div class="row banner menu">
+        <div class="col-md-11 col-md-offset-1 padding-none">
+            <h1>Edit Item</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1 padding-top">
+            <form action="#" method = "post">
+                <div class="form-group">
+                    <label for="name">Title:</label>
+                    <br>
+                    <input type ="text" maxlength="100" class="form-control" name="name" value="{{item.name }}">
+                    <br>
+                    <label for="description">Description:</label>
+                    <br>
+                    <textarea class="form-control" maxlength="250" rows="3" name="description">{{item.description}}</textarea>
+                    <br>
+                    <label for="Category">Category:</label>
+                    {{item.category.name }}
+                    <br>
+                    <div class="radio">
+                        <label><input type="radio" name="action" value="save">Save</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="action" value="cancel">Cancel</label>
+                    </div>
+                    <input type = "submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

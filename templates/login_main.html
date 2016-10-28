@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <div class="blog-masthead">
+            <div class="container">
+                <nav class="nav blog-nav">
+                    <a class="nav-link active" href="#">Shumei Lin</a>
+                    <a class="nav-link active" href="{{url_for('showCatalog')}}">Home</a>
+                    <a class="nav-link active" href="{{url_for('disconnect')}}">Log out</a>
+                </nav>
+            </div>
+        </div>
+
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,19 @@
+{% extends "login_main.html" %}
+{% block content %}
+
+<div class="container">
+    <h2> Are you sure you want to delete category {{category.name}}? </h2>
+
+    <form method = "post">
+        <div class="radio">
+            <label><input type="radio" name="action" value = "delete">Delete</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="action" value = "cancel">Cancel</label>
+        </div>
+        <input type = "submit">
+    </form>
+
+</div>
+
+{% endblock %}

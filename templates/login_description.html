@@ -1,0 +1,13 @@
+{% extends "login_main.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h1>{{item.name}}</h1>
+            <h4>Description: {{item.description}}</h4>
+            <a href="{{url_for('editItem', category_name=item.category.name, item_name=item.name)}}">Edit | </a>
+            <a href="{{url_for('deleteItem', category_name=item.category.name, item_name=item.name)}}">Delete</a>
+    </div>
+</div>
+
+{% endblock %}

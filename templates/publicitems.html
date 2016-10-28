@@ -1,0 +1,35 @@
+{% extends "public_main.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 sidebar-module">
+            <h1>Categories:</h1>
+            <ol class="list-unstyled">
+                {% for category in catalog %}
+                    <li>
+                        <h3><a href="{{url_for('showItems', category_name=category.name)}}">{{category.name}}</a></h3>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+
+
+        <div class="col-sm-6 sidebar-module">
+            <h1>{{category.name}} Items ({{number}} items):</h1>
+            <a href="{{url_for('menuItemJSON', category_name=category.name)}}">JSON Endpoints</a>
+            <ol class="list-unstyled">
+                {% for item in items %}
+                    <li>
+                        <h3>
+                            <a href="{{url_for('showDescription', category_name=item.category.name, item_name=item.name)}}">{{item.name}}</a>
+                        </h3>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
